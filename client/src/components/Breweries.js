@@ -30,13 +30,7 @@ class Breweries extends Component{
   }
 
   BreweryCards = () => {
-    // console.log(this.state.beers) //object all entries
-    // console.log(this.state.breweries.entries) // array of object entries
-    // console.log(this.state.beers.entries[4]) // single object entry
-    // console.log(this.state.beers.entries[4].name) // string
-    // console.log(this.state.beers.entries[4].style.name) // string
-    // console.log(this.state.beers.entries[4].description) // string
-    console.log(this.state.breweries)
+    // console.log(this.state.breweries)
     return this.state.breweries.map((entry, i) => 
       <BreweryCards key={i} entry={entry} />
     )

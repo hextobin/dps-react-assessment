@@ -39,8 +39,8 @@ class BeerCards extends Component{
 
   render(){
     if (this.props.entry.description) {
-      console.log(this.props.entry.name)
-      console.log(encodeURIComponent(this.props.entry.name))
+      // console.log(this.props.entry.name)
+      // console.log(encodeURIComponent(this.props.entry.name))
       return(
         <Card color='green'>
           {this.props.entry.labels ? (<Image src={this.props.entry.labels.medium} />) : (<Image src='https://pbs.twimg.com/profile_images/1217567809/BeerDirectoryAvatar_400x400.jpg' />)}
