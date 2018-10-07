@@ -54,7 +54,7 @@ class BeerCards extends Component{
           {!this.state.seeMore ? (this.showLess()) : (this.showFull())}
           {!this.state.seeMore ? (<Button onClick={() => {this.toggleSeeMore()}}>Read More</Button>) : (<Button onClick={() => {this.toggleSeeMore()}}>Read Less</Button>)}
           <Link to={`/beer/${encodeURIComponent(this.props.entry.name)}`}>
-            <Button color='blue'>{this.props.entry.name.substring(0, 8)}</Button>
+            <Button color='blue'>More Info</Button>
           </Link>
           </Card.Content>
         </Card>

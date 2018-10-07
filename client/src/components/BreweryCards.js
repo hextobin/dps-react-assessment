@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import {
   Card,
   Dimmer,
@@ -22,7 +23,6 @@ class BreweryCards extends Component{
   }
 
   showLess = () => {
-    console.log('something')
     return (
       <Card.Content>
         <Card.Description><strong>Description:  </strong>{this.props.entry.description.substring(0, 50)}...</Card.Description>
@@ -47,6 +47,9 @@ class BreweryCards extends Component{
           <Card.Content extra>
           {!this.state.seeMore ? (this.showLess()) : (this.showFull())}
           {!this.state.seeMore ? (<Button onClick={() => {this.toggleSeeMore()}}>See More</Button>) : (<Button onClick={() => {this.toggleSeeMore()}}>See Less</Button>)}
+          <Link to={`/brewery/${encodeURIComponent(this.props.entry.name)}`}>
+            <Button color='blue'>{this.props.entry.name.substring(0, 8)}</Button>
+          </Link>
           </Card.Content>
         </Card>
     )
