@@ -40,6 +40,7 @@ class BeerCards extends Component{
   render(){
     if (this.props.entry.description) {
       console.log(this.props.entry.name)
+      console.log(encodeURIComponent(this.props.entry.name))
       return(
         <Card color='green'>
           {this.props.entry.labels ? (<Image src={this.props.entry.labels.medium} />) : (<Image src='https://pbs.twimg.com/profile_images/1217567809/BeerDirectoryAvatar_400x400.jpg' />)}
@@ -51,9 +52,9 @@ class BeerCards extends Component{
           </Card.Content>
           <Card.Content extra>
           {!this.state.seeMore ? (this.showLess()) : (this.showFull())}
-          {!this.state.seeMore ? (<Button onClick={() => {this.toggleSeeMore()}}>See More</Button>) : (<Button onClick={() => {this.toggleSeeMore()}}>See Less</Button>)}
-          <Link to={`/beer/${this.props.entry.name}`}>
-            <Button color='blue'>{this.props.entry.name.substring(0, 12)}</Button>
+          {!this.state.seeMore ? (<Button onClick={() => {this.toggleSeeMore()}}>Read More</Button>) : (<Button onClick={() => {this.toggleSeeMore()}}>Read Less</Button>)}
+          <Link to={`/beer/${encodeURIComponent(this.props.entry.name)}`}>
+            <Button color='blue'>{this.props.entry.name.substring(0, 8)}</Button>
           </Link>
           </Card.Content>
         </Card>

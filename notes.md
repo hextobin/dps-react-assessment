@@ -9,3 +9,7 @@ worked on getting individual requests for beers and breweries working through po
   -for the breweries, I'm just grabbing a bunch of breweries and then filtering the ones out that don't have images
 
 -going to use similar component structure for breweries
+
+-all beers and breweries have images now
+
+-can now link to beer page with correct uri formatting for the endpoint api
