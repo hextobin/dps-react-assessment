@@ -7,45 +7,52 @@ import {
   Loader,
   Segment,
  } from 'semantic-ui-react'
- import BeerCards from './BeerCards'
+import BreweryCards from './BreweryCards'
 
-class Beers extends Component{
+class Breweries extends Component{
 
   state = {
-    beers: [],
+    breweries: [],
   }
 
   componentDidMount() {
-    axios.get(`api/all_beers?per_page=200`)
+    axios.get(`api/all_breweries?per_page=150`)
       .then(res => {
-        const beers = res.data;
-        let new_beers = beers.entries.filter(beer => 
+        const breweries = res.data;
+        
+        let new_breweries = breweries.entries.filter(brew => 
           // debugger
-          (beer.hasOwnProperty('labels') && beer.hasOwnProperty('description'))
+          (brew.hasOwnProperty('images') && brew.hasOwnProperty('description'))
         )
-        this.setState({ beers: new_beers });
+        // console.log(new_breweries)
+        this.setState({ breweries: new_breweries });
       })
   }
 
-  BeerCards = () => {
+  BreweryCards = () => {
     // console.log(this.state.beers) //object all entries
-    // console.log(this.state.beers) // array of object entries
+    // console.log(this.state.breweries.entries) // array of object entries
     // console.log(this.state.beers.entries[4]) // single object entry
     // console.log(this.state.beers.entries[4].name) // string
     // console.log(this.state.beers.entries[4].style.name) // string
     // console.log(this.state.beers.entries[4].description) // string
-
-    return this.state.beers.map((entry, i) => 
-      <BeerCards key={i} entry={entry} />
+    console.log(this.state.breweries)
+    return this.state.breweries.map((entry, i) => 
+      <BreweryCards key={i} entry={entry} />
     )
+
+
+    // breweries.filter(brew => {
+    //   brew.images.square_medium !== undefined
+    // })
   }
 
   render(){
-    if (this.state.beers.length !== 0) {
+    if (this.state.breweries.length !== 0) {
       return(
         <Container style={styles.text}>
           <Card.Group itemsPerRow={4}>
-            {this.BeerCards()}
+            {this.BreweryCards()}
           </Card.Group>
         </Container>
       )
@@ -69,5 +76,4 @@ const styles = {
   }
 }
 
-export default Beers
-
+export default Breweries
